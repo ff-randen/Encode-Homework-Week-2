@@ -25,7 +25,7 @@ async function main() {
   );
 
   // Configuring the wallet
-  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY ?? "", provider);
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY2 ?? "", provider);
   console.log(`Wallet: ${wallet.address}`);
   const balanceBN = await provider.getBalance(wallet.address);
   const balance = Number(ethers.formatUnits(balanceBN));
@@ -44,11 +44,9 @@ async function main() {
   console.log(`Transaction hash: ${receipt?.hash}`);
 
   const sender = await ballotContract.voters(wallet.address);
-
   console.log(
     `The sender ${wallet.address} has delegated their vote to ${voterAddress}`
   );
-  console.log(`sender.voted = ${sender.voted}`);
   console.log(`sender.delegate = ${sender.delegate}`);
 }
 
