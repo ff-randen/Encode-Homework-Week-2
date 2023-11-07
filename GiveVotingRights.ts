@@ -44,7 +44,7 @@ async function main() {
   console.log(`Transaction hash: ${receipt?.hash}`);
 
   const voter = await ballotContract.voters(voterAddress);
-  console.log(`Voter weight is ${voter.weight}`);
+  console.log(`${voterAddress} voter weight is ${voter.weight}`);
 }
 
 main().catch((error) => {
